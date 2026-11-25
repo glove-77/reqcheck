@@ -1,0 +1,13 @@
+# Обязательные зависимости агента
+google-genai>=1.0        # Gemini (бесплатный ключ Google AI Studio) — провайдер по умолчанию
+anthropic>=2.0           # Claude (необязательно, если используете Gemini)
+pypdf>=5.0               # чтение PDF
+python-docx>=1.1         # чтение DOCX
+pydantic>=2.7            # схемы ответов модели
+python-dotenv>=1.0       # ключи из .env
+
+# Необязательные
+openai>=1.40             # OpenAI и OpenAI-совместимые API (Ollama, vLLM, LM Studio)
+
+# Для разработки
+pytest>=8.0
