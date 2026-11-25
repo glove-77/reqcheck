@@ -158,6 +158,7 @@ class Pipeline:
             agent_version=agent_version(),
             duration_sec=round(time.monotonic() - started, 1),
             llm_calls=self.llm.calls,
+            cached_responses=getattr(self.llm, "hits", 0),
         )
         return RunResult(
             passport=passport,

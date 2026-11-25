@@ -69,8 +69,10 @@ def render_markdown(r: RunResult) -> str:
         ("Дата и время прогона", p.run_datetime),
         ("Модель", f"{p.model} (провайдер: {p.provider})"),
         ("Версия агента", p.agent_version),
-        ("Обращений к модели", str(p.llm_calls)),
-        ("Длительность", f"{p.duration_sec} с"),
+        ("Обращений к модели", str(p.llm_calls) + (
+            f" (ещё {p.cached_responses} ответов модели взяты из кэша прошлого прогона того же "
+            f"документа той же моделью)" if p.cached_responses else "")),
+        ("Длительность", f"{p.duration_sec} с" + (" (с учётом кэша)" if p.cached_responses else "")),
         ("Стандарты", "ISO/IEC/IEEE 29148:2018 п. 5.2.5, 5.2.6; IEEE Std 830-1998 п. 4.3"),
         ("Контекст (определён агентом)", r.product_context),
     ]

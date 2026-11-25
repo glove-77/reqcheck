@@ -188,6 +188,7 @@ class RunPassport(BaseModel):
     agent_version: str
     duration_sec: float = 0.0
     llm_calls: int = 0
+    cached_responses: int = 0  # ответы, взятые из кэша прошлых прогонов
 
 
 class RunResult(BaseModel):
