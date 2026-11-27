@@ -15,7 +15,7 @@
 ### 1. Установка (Python 3.10+)
 
 ```bash
-git clone <ссылка-на-репозиторий> reqcheck
+git clone https://github.com/glove-77/reqcheck.git reqcheck
 cd reqcheck
 python -m venv .venv
 # Windows:
@@ -57,6 +57,13 @@ python -m reqcheck <путь_к_документу> <путь_к_отчёту.md
 ```bash
 python -m reqcheck examples/requirements.md reports/report.md
 python -m reqcheck docs/requirements.pdf reports/report.md
+```
+
+Отчёт [`reports/report.md`](reports/report.md), приложенный к сдаче, построен моделью
+OpenAI `gpt-6.2-sol`. Чтобы повторить прогон на той же модели, задайте `OPENAI_API_KEY` в `.env` и запустите:
+
+```bash
+python -m reqcheck examples/requirements.md reports/report.md --provider openai --model gpt-6.2-sol
 ```
 
 Отчёт ляжет по указанному пути (`reports/report.md`), рядом — `reports/report.json` с теми же
